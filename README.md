@@ -1,6 +1,10 @@
 ## A collection of helpful functions for the [SIIAU][1] UdeG system.
 
-### ⚠ Warning: This module will only work in a NodeJs server environment, **do not use it in the browser**.
+### ⚠ Warning
+
+This module will only work in a NodeJs server environment, **do not use it in the browser**.
+
+### Features
 
 This package contains the following functions and tools:
 
