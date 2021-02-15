@@ -3,6 +3,7 @@ import fetch from "node-fetch";
 import FormData from "form-data";
 import { parseCookies } from "./utils";
 import { getValueFromPageText } from "./getValueFromPageText";
+import { selectors, urls } from "../constants";
 
 export const loginToSiiau = async (
   studentCode: string,
@@ -15,10 +16,10 @@ export const loginToSiiau = async (
   credentials.append("p_clave_c", studentNip);
 
   try {
-    const response = await fetch(
-      `http://siiauescolar.siiau.udg.mx/wus/gupprincipal.valida_inicio`,
-      { body: credentials, method: "POST" }
-    );
+    const response = await fetch(urls.loginUrl, {
+      body: credentials,
+      method: "POST",
+    });
 
     const pageText = await response.text();
 
@@ -31,7 +32,7 @@ export const loginToSiiau = async (
     loginResult.data.cookies = parseCookies(unparsedCookies!);
     loginResult.data.pidm = getValueFromPageText({
       pageText,
-      selector: '<INPUT TYPE="hidden" NAME="p_pidm_n" VALUE="',
+      selector: selectors.pidm,
       valueLength: 7,
     });
   } catch (e) {
