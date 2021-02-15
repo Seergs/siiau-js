@@ -1,5 +1,5 @@
 {
-  "name": "siiau-utils",
+  "name": "siiau-js",
   "version": "1.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
